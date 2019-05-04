@@ -1,0 +1,55 @@
+﻿
+@{
+    ViewBag.Title = "UserList";
+    Layout = "~/Areas/Admin/Views/Shared/AdminLayoutPage.cshtml";
+}
+
+@model List<WareHouse.UI.Areas.Admin.Models.DTO.UserDTO>
+
+
+<section class="content-header">
+    <ol class="breadcrumb">
+        <li><a href="/Admin/Home/AdminHomeIndex"><i class="fa fa-home"></i> Home</a></li>
+        <li><a href="/Admin/AppUser/AddUser">Add User</a></li>
+        <li class="active">User List</li>
+    </ol>
+</section>
+<br />
+<section class="content">
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="box">
+
+
+                <div class="box-body table-responsive no-padding">
+                    <table class="table table-hover">
+                        <tbody>
+                            <tr>
+                                <th>FirstName</th>
+                                <th>LastName</th>
+                                <th>UserName</th>
+                                <th>Email</th>
+                                <th>Role</th>
+                                <th>Gender</th>
+                            </tr>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>@item.FirstName</td>
+                                    <td>@item.LastName</td>
+                                    <td>@item.UserName</td>
+                                    <td>@item.Email</td>
+                                    <td>@item.Role</td>
+                                    <td>@item.Gender</td>
+                                    <td><a href="/Admin/AppUser/UpdateUser/@item.ID" type="button" class="btn btn-block btn-warning">Update</a></td>
+                                    <td><a href="/Admin/AppUser/DeleteUser/@item.ID" type="button" class="btn btn-block btn-danger">Delete</a></td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

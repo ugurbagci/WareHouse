@@ -1,0 +1,89 @@
+﻿
+@{
+    ViewBag.Title = "CategoryList";
+    Layout = "~/Areas/Admin/Views/Shared/AdminLayoutPage.cshtml";
+}
+
+@model List<WareHouse.UI.Areas.Admin.Models.DTO.CategoryDTO>
+
+<link href="~/Content/css/bootstrap.min.css" rel="stylesheet" />
+<link href="~/Content/css/font-awesome.min.css" rel="stylesheet" />
+<link href="~/Content/css/ionicons.min.css" rel="stylesheet" />
+<link href="~/Content/css/dataTables.bootstrap.min.css" rel="stylesheet" />
+<link href="~/Content/css/AdminLTE.min.css" rel="stylesheet" />
+<link href="~/Content/css/_all-skins.min.css" rel="stylesheet" />
+
+
+
+
+<section class="content-header">
+    <h1>
+        Category Tables
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="/Admin/Home/AdminHomeIndex"><i class="fa fa-home"></i> Home</a></li>
+        <li><a href="/Admin/Category/AddCategory">Add Category</a></li>
+        <li class="active">Category List</li>
+    </ol>
+</section>
+
+<section class="content">
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="box">
+            </div>
+            <div class="box">
+                
+                <!-- /.box-header -->
+                <div class="box-body">
+                    <div id="example1_wrapper" class="dataTables_wrapper form-inline dt-bootstrap">
+                        <div class="row"><div class="col-sm-6"><div class="dataTables_length" id="example1_length"></div></div><div class="col-sm-6"><div id="example1_filter" class="dataTables_filter"></div></div></div><div class="row">
+                            <div class="col-sm-12">
+                                <table id="example1" class="table table-bordered table-striped dataTable" role="grid" aria-describedby="example1_info">
+                                    <thead>
+                                        <tr role="row"><th class="sorting_asc" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending" style="width: 182px;">Category Name</th><th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Browser: activate to sort column ascending" style="width: 224px;">Category Description</th></tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach (var item in Model)
+                                        {
+                                            <tr>
+                                                <td>@item.CategoryName</td>
+                                                <td>@item.CategoryDescription</td>
+                                                <td><a href="/Admin/Category/UpdateCategory/@item.ID" type="button" class="btn btn-block btn-warning">Update</a></td>
+                                                <td><a href="/Admin/Category/DeleteCategory/@item.ID" type="button" class="btn btn-block btn-danger">Delete</a></td>
+                                            </tr>
+                                        }
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="~/Content/script/jquery.min.js"></script>
+    <script src="~/Content/script/bootstrap.min.js"></script>
+    <script src="~/Content/script/jquery.dataTables.min.js"></script>
+    <script src="~/Content/script/dataTables.bootstrap.min.js"></script>
+    <script src="~/Content/script/jquery.slimscroll.min.js"></script>
+    <script src="~/Content/script/adminlte.min.js"></script>
+    <script src="~/Content/script/demo.js"></script>
+
+
+</section>
+<script>
+    $(function () {
+        $('#example1').DataTable()
+        $('#example2').DataTable({
+            'paging': true,
+            'lengthChange': false,
+            'searching': false,
+            'ordering': true,
+            'info': true,
+            'autoWidth': false
+        })
+    })
+</script>
+

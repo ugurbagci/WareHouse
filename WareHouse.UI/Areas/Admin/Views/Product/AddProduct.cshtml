@@ -1,0 +1,66 @@
+﻿
+@{
+    ViewBag.Title = "AddProduct";
+    Layout = "~/Areas/Admin/Views/Shared/AdminLayoutPage.cshtml";
+}
+
+@model List<WareHouse.Model.Entity.Category>
+
+
+<section class="content-header">
+    <ol class="breadcrumb">
+        <li><a href="/Admin/Home/AdminHomeIndex"><i class="fa fa-home"></i>Home</a></li>
+        <li><a href="/Admin/Product/ProductList">Product List</a></li>
+        <li class="active">Add Product</li>
+    </ol>
+</section>
+<section class="content">
+    <div class="row">
+        <!-- left column -->
+        <div class="col-md-6">
+            <!-- general form elements -->
+            <div class="box box-primary">
+                <div class="box-header with-border">
+                    <h3 class="box-title">Add User</h3>
+                </div>
+                <form action="/Admin/Product/AddProduct" method="post" enctype="multipart/form-data" role="form">
+                    <div class="box-body">
+                        <div class="form-group">
+                            <label for="text">Product Name</label>
+                            <input type="text" name="ProductName" class="form-control" placeholder="Product Name">
+                            
+                        </div>
+                        <div class="form-group">
+                            <label for="text">Product Description</label>
+                            <input type="text" name="ProductDescription" class="form-control" placeholder="Product Description">
+                            
+                        </div>
+                        <div class="form-group">
+                            <label for="text">Units InStock</label>
+                            <input type="text" name="UnitsInStock" class="form-control" placeholder="UnitsInStock">
+                          
+                        </div>
+                        <div class="form-group">
+                            <label for="text">Unit Price</label>
+                            <input type="text" name="UnitPrice" class="form-control" placeholder="Unit Price">
+                           
+                        </div>          
+                        <div class="form-group">
+                            <label for="Role">Choose Category</label>
+                            <select name="CategoryName" class="form-control">
+                                @foreach (var item in Model)                                    
+                                {
+                                <option value="@item.ID">@item.CategoryName</option>
+                                }
+                            </select>                       
+                        </div>
+               
+                    </div>
+                    <div class="box-footer">
+                        <button type="submit" class="btn btn-primary">Add Product</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>

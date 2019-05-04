@@ -1,0 +1,27 @@
+﻿
+@{
+    ViewBag.Title = "AddUser";
+    Layout = "~/Areas/Admin/Views/Shared/AdminLayoutPage.cshtml";
+}
+
+
+
+<section class="content-header">
+    <ol class="breadcrumb">
+        <li><a href="/Admin/Home/AdminHomeIndex"><i class="fa fa-home"></i>Home</a></li>
+        <li><a href="/Admin/AppUser/UserList">User List</a></li>
+        <li class="active">Add User</li>
+    </ol>
+</section>
+<section class="content">
+    <div class="row">
+        <!-- left column -->
+        <div class="col-md-6">
+            <!-- general form elements -->
+
+            @Html.Partial("/Areas/Admin/Views/Shared/Partial/FormMessage.cshtml")
+            @Html.Partial("Partial/UserForm")
+
+        </div>
+    </div>
+</section>
